@@ -1,0 +1,32 @@
+{
+    "type": "object",
+    "properties": {
+        "liveChatId": {
+            "required": true,
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 50,
+            "default": 5
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

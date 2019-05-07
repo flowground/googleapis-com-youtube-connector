@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "chart": {
+            "type": "string",
+            "enum": [
+                "mostPopular"
+            ]
+        },
+        "hl": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string"
+        },
+        "locale": {
+            "type": "string"
+        },
+        "maxHeight": {
+            "type": "integer",
+            "minimum": 72,
+            "maximum": 8192
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50,
+            "default": 5
+        },
+        "maxWidth": {
+            "type": "integer",
+            "minimum": 72,
+            "maximum": 8192
+        },
+        "myRating": {
+            "type": "string",
+            "enum": [
+                "dislike",
+                "like"
+            ]
+        },
+        "onBehalfOfContentOwner": {
+            "type": "string"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "regionCode": {
+            "type": "string"
+        },
+        "videoCategoryId": {
+            "type": "string",
+            "default": "0"
+        }
+    }
+}

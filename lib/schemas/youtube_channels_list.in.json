@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "categoryId": {
+            "type": "string"
+        },
+        "forUsername": {
+            "type": "string"
+        },
+        "hl": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string"
+        },
+        "managedByMe": {
+            "type": "boolean"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 50,
+            "default": 5
+        },
+        "mine": {
+            "type": "boolean"
+        },
+        "mySubscribers": {
+            "type": "boolean"
+        },
+        "onBehalfOfContentOwner": {
+            "type": "string"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "onBehalfOf": {
+            "type": "string"
+        },
+        "onBehalfOfContentOwner": {
+            "type": "string"
+        },
+        "tfmt": {
+            "type": "string",
+            "enum": [
+                "sbv",
+                "scc",
+                "srt",
+                "ttml",
+                "vtt"
+            ]
+        },
+        "tlang": {
+            "type": "string"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

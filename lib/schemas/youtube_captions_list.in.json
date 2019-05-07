@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "onBehalfOf": {
+            "type": "string"
+        },
+        "onBehalfOfContentOwner": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "videoId": {
+            "required": true,
+            "type": "string"
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

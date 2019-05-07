@@ -1,0 +1,79 @@
+{
+    "type": "object",
+    "properties": {
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A liveChatModerator resource represents a moderator for a YouTube live chat. A chat moderator has the ability to ban/unban users from a chat, remove message, etc.",
+            "properties": {
+                "etag": {
+                    "description": "Etag of this resource.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The ID that YouTube assigns to uniquely identify the moderator.",
+                    "type": "string"
+                },
+                "kind": {
+                    "default": "youtube#liveChatModerator",
+                    "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#liveChatModerator\".",
+                    "type": "string"
+                },
+                "snippet": {
+                    "description": "The snippet object contains basic details about the moderator.",
+                    "properties": {
+                        "liveChatId": {
+                            "description": "The ID of the live chat this moderator can act on.",
+                            "type": "string"
+                        },
+                        "moderatorDetails": {
+                            "description": "Details about the moderator.",
+                            "properties": {
+                                "channelId": {
+                                    "description": "The YouTube channel ID.",
+                                    "type": "string"
+                                },
+                                "channelUrl": {
+                                    "description": "The channel's URL.",
+                                    "type": "string"
+                                },
+                                "displayName": {
+                                    "description": "The channel's display name.",
+                                    "type": "string"
+                                },
+                                "profileImageUrl": {
+                                    "description": "The channels's avatar URL.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "type": "object",
+    "properties": {
+        "displaySlate": {
+            "type": "boolean"
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "offsetTimeMs": {
+            "type": "string"
+        },
+        "onBehalfOfContentOwner": {
+            "type": "string"
+        },
+        "onBehalfOfContentOwnerChannel": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "walltime": {
+            "type": "string"
+        }
+    }
+}

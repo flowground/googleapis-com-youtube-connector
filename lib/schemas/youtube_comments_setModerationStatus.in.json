@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "banAuthor": {
+            "type": "boolean",
+            "default": false
+        },
+        "id": {
+            "required": true,
+            "type": "string"
+        },
+        "moderationStatus": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "heldForReview",
+                "published",
+                "rejected"
+            ]
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

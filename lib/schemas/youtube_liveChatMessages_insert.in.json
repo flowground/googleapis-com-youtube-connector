@@ -1,0 +1,366 @@
+{
+    "type": "object",
+    "properties": {
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A liveChatMessage resource represents a chat message in a YouTube Live Chat.",
+            "properties": {
+                "authorDetails": {
+                    "description": "The authorDetails object contains basic details about the user that posted this message.",
+                    "properties": {
+                        "channelId": {
+                            "description": "The YouTube channel ID.",
+                            "type": "string"
+                        },
+                        "channelUrl": {
+                            "description": "The channel's URL.",
+                            "type": "string"
+                        },
+                        "displayName": {
+                            "description": "The channel's display name.",
+                            "type": "string"
+                        },
+                        "isChatModerator": {
+                            "description": "Whether the author is a moderator of the live chat.",
+                            "type": "boolean"
+                        },
+                        "isChatOwner": {
+                            "description": "Whether the author is the owner of the live chat.",
+                            "type": "boolean"
+                        },
+                        "isChatSponsor": {
+                            "description": "Whether the author is a sponsor of the live chat.",
+                            "type": "boolean"
+                        },
+                        "isVerified": {
+                            "description": "Whether the author's identity has been verified by YouTube.",
+                            "type": "boolean"
+                        },
+                        "profileImageUrl": {
+                            "description": "The channels's avatar URL.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "etag": {
+                    "description": "Etag of this resource.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The ID that YouTube assigns to uniquely identify the message.",
+                    "type": "string"
+                },
+                "kind": {
+                    "default": "youtube#liveChatMessage",
+                    "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#liveChatMessage\".",
+                    "type": "string"
+                },
+                "snippet": {
+                    "description": "The snippet object contains basic details about the message.",
+                    "properties": {
+                        "authorChannelId": {
+                            "description": "The ID of the user that authored this message, this field is not always filled. textMessageEvent - the user that wrote the message fanFundingEvent - the user that funded the broadcast newSponsorEvent - the user that just became a sponsor messageDeletedEvent - the moderator that took the action messageRetractedEvent - the author that retracted their message userBannedEvent - the moderator that took the action superChatEvent - the user that made the purchase",
+                            "type": "string"
+                        },
+                        "displayMessage": {
+                            "description": "Contains a string that can be displayed to the user. If this field is not present the message is silent, at the moment only messages of type TOMBSTONE and CHAT_ENDED_EVENT are silent.",
+                            "type": "string"
+                        },
+                        "fanFundingEventDetails": {
+                            "description": "Details about the funding event, this is only set if the type is 'fanFundingEvent'.",
+                            "properties": {
+                                "amountDisplayString": {
+                                    "description": "A rendered string that displays the fund amount and currency to the user.",
+                                    "type": "string"
+                                },
+                                "amountMicros": {
+                                    "description": "The amount of the fund.",
+                                    "format": "uint64",
+                                    "type": "string"
+                                },
+                                "currency": {
+                                    "description": "The currency in which the fund was made.",
+                                    "type": "string"
+                                },
+                                "userComment": {
+                                    "description": "The comment added by the user to this fan funding event.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "hasDisplayContent": {
+                            "description": "Whether the message has display content that should be displayed to users.",
+                            "type": "boolean"
+                        },
+                        "liveChatId": {
+                            "type": "string"
+                        },
+                        "messageDeletedDetails": {
+                            "properties": {
+                                "deletedMessageId": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "messageRetractedDetails": {
+                            "properties": {
+                                "retractedMessageId": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "pollClosedDetails": {
+                            "properties": {
+                                "pollId": {
+                                    "description": "The id of the poll that was closed.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "pollEditedDetails": {
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "items": {
+                                    "items": {
+                                        "properties": {
+                                            "description": {
+                                                "description": "Plain text description of the item.",
+                                                "type": "string"
+                                            },
+                                            "itemId": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "prompt": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "pollOpenedDetails": {
+                            "properties": {
+                                "id": {
+                                    "type": "string"
+                                },
+                                "items": {
+                                    "items": {
+                                        "properties": {
+                                            "description": {
+                                                "description": "Plain text description of the item.",
+                                                "type": "string"
+                                            },
+                                            "itemId": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "prompt": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "pollVotedDetails": {
+                            "properties": {
+                                "itemId": {
+                                    "description": "The poll item the user chose.",
+                                    "type": "string"
+                                },
+                                "pollId": {
+                                    "description": "The poll the user voted on.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "publishedAt": {
+                            "description": "The date and time when the message was orignally published. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "superChatDetails": {
+                            "description": "Details about the Super Chat event, this is only set if the type is 'superChatEvent'.",
+                            "properties": {
+                                "amountDisplayString": {
+                                    "description": "A rendered string that displays the fund amount and currency to the user.",
+                                    "type": "string"
+                                },
+                                "amountMicros": {
+                                    "description": "The amount purchased by the user, in micros (1,750,000 micros = 1.75).",
+                                    "format": "uint64",
+                                    "type": "string"
+                                },
+                                "currency": {
+                                    "description": "The currency in which the purchase was made.",
+                                    "type": "string"
+                                },
+                                "tier": {
+                                    "description": "The tier in which the amount belongs. Lower amounts belong to lower tiers. The lowest tier is 1.",
+                                    "format": "uint32",
+                                    "type": "integer"
+                                },
+                                "userComment": {
+                                    "description": "The comment added by the user to this Super Chat event.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "superStickerDetails": {
+                            "description": "Details about the Super Sticker event, this is only set if the type is 'superStickerEvent'.",
+                            "properties": {
+                                "amountDisplayString": {
+                                    "description": "A rendered string that displays the fund amount and currency to the user.",
+                                    "type": "string"
+                                },
+                                "amountMicros": {
+                                    "description": "The amount purchased by the user, in micros (1,750,000 micros = 1.75).",
+                                    "format": "uint64",
+                                    "type": "string"
+                                },
+                                "currency": {
+                                    "description": "The currency in which the purchase was made.",
+                                    "type": "string"
+                                },
+                                "superStickerMetadata": {
+                                    "description": "Information about the Super Sticker.",
+                                    "properties": {
+                                        "altText": {
+                                            "description": "Internationalized alt text that describes the sticker image and any animation associated with it.",
+                                            "type": "string"
+                                        },
+                                        "altTextLanguage": {
+                                            "description": "Specifies the localization language in which the alt text is returned.",
+                                            "type": "string"
+                                        },
+                                        "stickerId": {
+                                            "description": "Unique identifier of the Super Sticker. This is a shorter form of the alt_text that includes pack name and a recognizable characteristic of the sticker.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "tier": {
+                                    "description": "The tier in which the amount belongs. Lower amounts belong to lower tiers. The lowest tier is 1.",
+                                    "format": "uint32",
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "textMessageDetails": {
+                            "description": "Details about the text message, this is only set if the type is 'textMessageEvent'.",
+                            "properties": {
+                                "messageText": {
+                                    "description": "The user's message.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": {
+                            "description": "The type of message, this will always be present, it determines the contents of the message as well as which fields will be present.",
+                            "enum": [
+                                "chatEndedEvent",
+                                "fanFundingEvent",
+                                "messageDeletedEvent",
+                                "messageRetractedEvent",
+                                "newSponsorEvent",
+                                "pollClosedEvent",
+                                "pollEditedEvent",
+                                "pollOpenedEvent",
+                                "pollVotedEvent",
+                                "sponsorOnlyModeEndedEvent",
+                                "sponsorOnlyModeStartedEvent",
+                                "superChatEvent",
+                                "superStickerEvent",
+                                "textMessageEvent",
+                                "tombstone",
+                                "userBannedEvent"
+                            ],
+                            "type": "string"
+                        },
+                        "userBannedDetails": {
+                            "properties": {
+                                "banDurationSeconds": {
+                                    "description": "The duration of the ban. This property is only present if the banType is temporary.",
+                                    "format": "uint64",
+                                    "type": "string"
+                                },
+                                "banType": {
+                                    "description": "The type of ban.",
+                                    "enum": [
+                                        "permanent",
+                                        "temporary"
+                                    ],
+                                    "type": "string"
+                                },
+                                "bannedUserDetails": {
+                                    "description": "The details of the user that was banned.",
+                                    "properties": {
+                                        "channelId": {
+                                            "description": "The YouTube channel ID.",
+                                            "type": "string"
+                                        },
+                                        "channelUrl": {
+                                            "description": "The channel's URL.",
+                                            "type": "string"
+                                        },
+                                        "displayName": {
+                                            "description": "The channel's display name.",
+                                            "type": "string"
+                                        },
+                                        "profileImageUrl": {
+                                            "description": "The channels's avatar URL.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

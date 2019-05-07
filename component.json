@@ -1,0 +1,1402 @@
+{
+    "title": "YouTube Data",
+    "description": "Supports core YouTube features, such as uploading videos, creating and managing playlists, searching for content, and much more.",
+    "docsUrl": "https://developers.google.com/youtube/v3",
+    "url": "https://api.apis.guru/v2/specs/googleapis.com/youtube/v3/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://www.googleapis.com/youtube/v3",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "Oauth2": {
+                "label": "Oauth 2.0 authentication",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://accounts.google.com/o/oauth2/auth"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "youtube_activities_list": {
+            "main": "./lib/actions/youtube_activities_list.js",
+            "title": "Returns a list of channel activity events that match the request criteria. For example, you can retrieve events associated with a particular channel, events associated with the user's subscriptions and Google+ friends, or the YouTube home page feed, which is customized for each user.",
+            "description": "Returns a list of channel activity events that match the request criteria. For example, you can retrieve events associated with a particular channel, events associated with the user's subscriptions and Google+ friends, or the YouTube home page feed, which is customized for each user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_activities_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_activities_insert": {
+            "main": "./lib/actions/youtube_activities_insert.js",
+            "title": "Posts a bulletin for a specific channel. (The user submitting the request must be authorized to act on the channel's behalf.)\n\nNote: Even though an activity resource can contain information about actions like a user rating a video or marking a video as a favorite, you need to use other API methods to generate those activity resources. For example, you would use the API's videos.rate() method to rate a video and the playlistItems.insert() method to mark a video as a favorite.",
+            "description": "Posts a bulletin for a specific channel. (The user submitting the request must be authorized to act on the channel's behalf.)\n\nNote: Even though an activity resource can contain information about actions like a user rating a video or marking a video as a favorite, you need to use other API methods to generate those activity resources. For example, you would use the API's videos.rate() method to rate a video and the playlistItems.insert() method to mark a video as a favorite.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_activities_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_captions_delete": {
+            "main": "./lib/actions/youtube_captions_delete.js",
+            "title": "Deletes a specified caption track.",
+            "description": "Deletes a specified caption track.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_captions_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_captions_list": {
+            "main": "./lib/actions/youtube_captions_list.js",
+            "title": "Returns a list of caption tracks that are associated with a specified video. Note that the API response does not contain the actual captions and that the captions.download method provides the ability to retrieve a caption track.",
+            "description": "Returns a list of caption tracks that are associated with a specified video. Note that the API response does not contain the actual captions and that the captions.download method provides the ability to retrieve a caption track.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_captions_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_captions_insert": {
+            "main": "./lib/actions/youtube_captions_insert.js",
+            "title": "Uploads a caption track.",
+            "description": "Uploads a caption track.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/octet-stream": "application/octet-stream",
+                        "text/xml": "text/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_captions_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_captions_update": {
+            "main": "./lib/actions/youtube_captions_update.js",
+            "title": "Updates a caption track. When updating a caption track, you can change the track's draft status, upload a new caption file for the track, or both.",
+            "description": "Updates a caption track. When updating a caption track, you can change the track's draft status, upload a new caption file for the track, or both.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/octet-stream": "application/octet-stream",
+                        "text/xml": "text/xml"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_captions_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_captions_download": {
+            "main": "./lib/actions/youtube_captions_download.js",
+            "title": "Downloads a caption track. The caption track is returned in its original format unless the request specifies a value for the tfmt parameter and in its original language unless the request specifies a value for the tlang parameter.",
+            "description": "Downloads a caption track. The caption track is returned in its original format unless the request specifies a value for the tfmt parameter and in its original language unless the request specifies a value for the tlang parameter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_captions_download.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_channelBanners_insert": {
+            "main": "./lib/actions/youtube_channelBanners_insert.js",
+            "title": "Uploads a channel banner image to YouTube. This method represents the first two steps in a three-step process to update the banner image for a channel:\n\n- Call the channelBanners.insert method to upload the binary image data to YouTube. The image must have a 16:9 aspect ratio and be at least 2120x1192 pixels.\n- Extract the url property's value from the response that the API returns for step 1.\n- Call the channels.update method to update the channel's branding settings. Set the brandingSettings.image.bannerExternalUrl property's value to the URL obtained in step 2.",
+            "description": "Uploads a channel banner image to YouTube. This method represents the first two steps in a three-step process to update the banner image for a channel:\n\n- Call the channelBanners.insert method to upload the binary image data to YouTube. The image must have a 16:9 aspect ratio and be at least 2120x1192 pixels.\n- Extract the url property's value from the response that the API returns for step 1.\n- Call the channels.update method to update the channel's branding settings. Set the brandingSettings.image.bannerExternalUrl property's value to the URL obtained in step 2.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/octet-stream": "application/octet-stream",
+                        "image/jpeg": "image/jpeg",
+                        "image/png": "image/png"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_channelBanners_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_channelSections_delete": {
+            "main": "./lib/actions/youtube_channelSections_delete.js",
+            "title": "Deletes a channelSection.",
+            "description": "Deletes a channelSection.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_channelSections_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_channelSections_list": {
+            "main": "./lib/actions/youtube_channelSections_list.js",
+            "title": "Returns channelSection resources that match the API request criteria.",
+            "description": "Returns channelSection resources that match the API request criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_channelSections_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_channelSections_insert": {
+            "main": "./lib/actions/youtube_channelSections_insert.js",
+            "title": "Adds a channelSection for the authenticated user's channel.",
+            "description": "Adds a channelSection for the authenticated user's channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_channelSections_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_channelSections_update": {
+            "main": "./lib/actions/youtube_channelSections_update.js",
+            "title": "Update a channelSection.",
+            "description": "Update a channelSection.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_channelSections_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_channels_list": {
+            "main": "./lib/actions/youtube_channels_list.js",
+            "title": "Returns a collection of zero or more channel resources that match the request criteria.",
+            "description": "Returns a collection of zero or more channel resources that match the request criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_channels_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_channels_update": {
+            "main": "./lib/actions/youtube_channels_update.js",
+            "title": "Updates a channel's metadata. Note that this method currently only supports updates to the channel resource's brandingSettings and invideoPromotion objects and their child properties.",
+            "description": "Updates a channel's metadata. Note that this method currently only supports updates to the channel resource's brandingSettings and invideoPromotion objects and their child properties.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_channels_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_commentThreads_list": {
+            "main": "./lib/actions/youtube_commentThreads_list.js",
+            "title": "Returns a list of comment threads that match the API request parameters.",
+            "description": "Returns a list of comment threads that match the API request parameters.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_commentThreads_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_commentThreads_insert": {
+            "main": "./lib/actions/youtube_commentThreads_insert.js",
+            "title": "Creates a new top-level comment. To add a reply to an existing comment, use the comments.insert method instead.",
+            "description": "Creates a new top-level comment. To add a reply to an existing comment, use the comments.insert method instead.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_commentThreads_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_commentThreads_update": {
+            "main": "./lib/actions/youtube_commentThreads_update.js",
+            "title": "Modifies the top-level comment in a comment thread.",
+            "description": "Modifies the top-level comment in a comment thread.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_commentThreads_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_comments_delete": {
+            "main": "./lib/actions/youtube_comments_delete.js",
+            "title": "Deletes a comment.",
+            "description": "Deletes a comment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_comments_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_comments_list": {
+            "main": "./lib/actions/youtube_comments_list.js",
+            "title": "Returns a list of comments that match the API request parameters.",
+            "description": "Returns a list of comments that match the API request parameters.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_comments_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_comments_insert": {
+            "main": "./lib/actions/youtube_comments_insert.js",
+            "title": "Creates a reply to an existing comment. Note: To create a top-level comment, use the commentThreads.insert method.",
+            "description": "Creates a reply to an existing comment. Note: To create a top-level comment, use the commentThreads.insert method.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_comments_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_comments_update": {
+            "main": "./lib/actions/youtube_comments_update.js",
+            "title": "Modifies a comment.",
+            "description": "Modifies a comment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_comments_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_comments_markAsSpam": {
+            "main": "./lib/actions/youtube_comments_markAsSpam.js",
+            "title": "Expresses the caller's opinion that one or more comments should be flagged as spam.",
+            "description": "Expresses the caller's opinion that one or more comments should be flagged as spam.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_comments_markAsSpam.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_comments_setModerationStatus": {
+            "main": "./lib/actions/youtube_comments_setModerationStatus.js",
+            "title": "Sets the moderation status of one or more comments. The API request must be authorized by the owner of the channel or video associated with the comments.",
+            "description": "Sets the moderation status of one or more comments. The API request must be authorized by the owner of the channel or video associated with the comments.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_comments_setModerationStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_guideCategories_list": {
+            "main": "./lib/actions/youtube_guideCategories_list.js",
+            "title": "Returns a list of categories that can be associated with YouTube channels.",
+            "description": "Returns a list of categories that can be associated with YouTube channels.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_guideCategories_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_i18nLanguages_list": {
+            "main": "./lib/actions/youtube_i18nLanguages_list.js",
+            "title": "Returns a list of application languages that the YouTube website supports.",
+            "description": "Returns a list of application languages that the YouTube website supports.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_i18nLanguages_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_i18nRegions_list": {
+            "main": "./lib/actions/youtube_i18nRegions_list.js",
+            "title": "Returns a list of content regions that the YouTube website supports.",
+            "description": "Returns a list of content regions that the YouTube website supports.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_i18nRegions_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveBroadcasts_delete": {
+            "main": "./lib/actions/youtube_liveBroadcasts_delete.js",
+            "title": "Deletes a broadcast.",
+            "description": "Deletes a broadcast.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveBroadcasts_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveBroadcasts_list": {
+            "main": "./lib/actions/youtube_liveBroadcasts_list.js",
+            "title": "Returns a list of YouTube broadcasts that match the API request parameters.",
+            "description": "Returns a list of YouTube broadcasts that match the API request parameters.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveBroadcasts_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveBroadcasts_insert": {
+            "main": "./lib/actions/youtube_liveBroadcasts_insert.js",
+            "title": "Creates a broadcast.",
+            "description": "Creates a broadcast.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveBroadcasts_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveBroadcasts_update": {
+            "main": "./lib/actions/youtube_liveBroadcasts_update.js",
+            "title": "Updates a broadcast. For example, you could modify the broadcast settings defined in the liveBroadcast resource's contentDetails object.",
+            "description": "Updates a broadcast. For example, you could modify the broadcast settings defined in the liveBroadcast resource's contentDetails object.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveBroadcasts_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveBroadcasts_bind": {
+            "main": "./lib/actions/youtube_liveBroadcasts_bind.js",
+            "title": "Binds a YouTube broadcast to a stream or removes an existing binding between a broadcast and a stream. A broadcast can only be bound to one video stream, though a video stream may be bound to more than one broadcast.",
+            "description": "Binds a YouTube broadcast to a stream or removes an existing binding between a broadcast and a stream. A broadcast can only be bound to one video stream, though a video stream may be bound to more than one broadcast.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveBroadcasts_bind.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveBroadcasts_control": {
+            "main": "./lib/actions/youtube_liveBroadcasts_control.js",
+            "title": "Controls the settings for a slate that can be displayed in the broadcast stream.",
+            "description": "Controls the settings for a slate that can be displayed in the broadcast stream.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveBroadcasts_control.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveBroadcasts_transition": {
+            "main": "./lib/actions/youtube_liveBroadcasts_transition.js",
+            "title": "Changes the status of a YouTube live broadcast and initiates any processes associated with the new status. For example, when you transition a broadcast's status to testing, YouTube starts to transmit video to that broadcast's monitor stream. Before calling this method, you should confirm that the value of the status.streamStatus property for the stream bound to your broadcast is active.",
+            "description": "Changes the status of a YouTube live broadcast and initiates any processes associated with the new status. For example, when you transition a broadcast's status to testing, YouTube starts to transmit video to that broadcast's monitor stream. Before calling this method, you should confirm that the value of the status.streamStatus property for the stream bound to your broadcast is active.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveBroadcasts_transition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveChatBans_delete": {
+            "main": "./lib/actions/youtube_liveChatBans_delete.js",
+            "title": "Removes a chat ban.",
+            "description": "Removes a chat ban.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveChatBans_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveChatBans_insert": {
+            "main": "./lib/actions/youtube_liveChatBans_insert.js",
+            "title": "Adds a new ban to the chat.",
+            "description": "Adds a new ban to the chat.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveChatBans_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveChatMessages_delete": {
+            "main": "./lib/actions/youtube_liveChatMessages_delete.js",
+            "title": "Deletes a chat message.",
+            "description": "Deletes a chat message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveChatMessages_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveChatMessages_list": {
+            "main": "./lib/actions/youtube_liveChatMessages_list.js",
+            "title": "Lists live chat messages for a specific chat.",
+            "description": "Lists live chat messages for a specific chat.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveChatMessages_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveChatMessages_insert": {
+            "main": "./lib/actions/youtube_liveChatMessages_insert.js",
+            "title": "Adds a message to a live chat.",
+            "description": "Adds a message to a live chat.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveChatMessages_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveChatModerators_delete": {
+            "main": "./lib/actions/youtube_liveChatModerators_delete.js",
+            "title": "Removes a chat moderator.",
+            "description": "Removes a chat moderator.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveChatModerators_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveChatModerators_list": {
+            "main": "./lib/actions/youtube_liveChatModerators_list.js",
+            "title": "Lists moderators for a live chat.",
+            "description": "Lists moderators for a live chat.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveChatModerators_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveChatModerators_insert": {
+            "main": "./lib/actions/youtube_liveChatModerators_insert.js",
+            "title": "Adds a new moderator for the chat.",
+            "description": "Adds a new moderator for the chat.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveChatModerators_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveStreams_delete": {
+            "main": "./lib/actions/youtube_liveStreams_delete.js",
+            "title": "Deletes a video stream.",
+            "description": "Deletes a video stream.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveStreams_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveStreams_list": {
+            "main": "./lib/actions/youtube_liveStreams_list.js",
+            "title": "Returns a list of video streams that match the API request parameters.",
+            "description": "Returns a list of video streams that match the API request parameters.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveStreams_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveStreams_insert": {
+            "main": "./lib/actions/youtube_liveStreams_insert.js",
+            "title": "Creates a video stream. The stream enables you to send your video to YouTube, which can then broadcast the video to your audience.",
+            "description": "Creates a video stream. The stream enables you to send your video to YouTube, which can then broadcast the video to your audience.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveStreams_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_liveStreams_update": {
+            "main": "./lib/actions/youtube_liveStreams_update.js",
+            "title": "Updates a video stream. If the properties that you want to change cannot be updated, then you need to create a new stream with the proper settings.",
+            "description": "Updates a video stream. If the properties that you want to change cannot be updated, then you need to create a new stream with the proper settings.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_liveStreams_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_playlistItems_delete": {
+            "main": "./lib/actions/youtube_playlistItems_delete.js",
+            "title": "Deletes a playlist item.",
+            "description": "Deletes a playlist item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_playlistItems_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_playlistItems_list": {
+            "main": "./lib/actions/youtube_playlistItems_list.js",
+            "title": "Returns a collection of playlist items that match the API request parameters. You can retrieve all of the playlist items in a specified playlist or retrieve one or more playlist items by their unique IDs.",
+            "description": "Returns a collection of playlist items that match the API request parameters. You can retrieve all of the playlist items in a specified playlist or retrieve one or more playlist items by their unique IDs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_playlistItems_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_playlistItems_insert": {
+            "main": "./lib/actions/youtube_playlistItems_insert.js",
+            "title": "Adds a resource to a playlist.",
+            "description": "Adds a resource to a playlist.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_playlistItems_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_playlistItems_update": {
+            "main": "./lib/actions/youtube_playlistItems_update.js",
+            "title": "Modifies a playlist item. For example, you could update the item's position in the playlist.",
+            "description": "Modifies a playlist item. For example, you could update the item's position in the playlist.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_playlistItems_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_playlists_delete": {
+            "main": "./lib/actions/youtube_playlists_delete.js",
+            "title": "Deletes a playlist.",
+            "description": "Deletes a playlist.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_playlists_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_playlists_list": {
+            "main": "./lib/actions/youtube_playlists_list.js",
+            "title": "Returns a collection of playlists that match the API request parameters. For example, you can retrieve all playlists that the authenticated user owns, or you can retrieve one or more playlists by their unique IDs.",
+            "description": "Returns a collection of playlists that match the API request parameters. For example, you can retrieve all playlists that the authenticated user owns, or you can retrieve one or more playlists by their unique IDs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_playlists_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_playlists_insert": {
+            "main": "./lib/actions/youtube_playlists_insert.js",
+            "title": "Creates a playlist.",
+            "description": "Creates a playlist.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_playlists_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_playlists_update": {
+            "main": "./lib/actions/youtube_playlists_update.js",
+            "title": "Modifies a playlist. For example, you could change a playlist's title, description, or privacy status.",
+            "description": "Modifies a playlist. For example, you could change a playlist's title, description, or privacy status.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_playlists_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_search_list": {
+            "main": "./lib/actions/youtube_search_list.js",
+            "title": "Returns a collection of search results that match the query parameters specified in the API request. By default, a search result set identifies matching video, channel, and playlist resources, but you can also configure queries to only retrieve a specific type of resource.",
+            "description": "Returns a collection of search results that match the query parameters specified in the API request. By default, a search result set identifies matching video, channel, and playlist resources, but you can also configure queries to only retrieve a specific type of resource.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_search_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_sponsors_list": {
+            "main": "./lib/actions/youtube_sponsors_list.js",
+            "title": "Lists sponsors for a channel.",
+            "description": "Lists sponsors for a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_sponsors_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_subscriptions_delete": {
+            "main": "./lib/actions/youtube_subscriptions_delete.js",
+            "title": "Deletes a subscription.",
+            "description": "Deletes a subscription.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_subscriptions_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_subscriptions_list": {
+            "main": "./lib/actions/youtube_subscriptions_list.js",
+            "title": "Returns subscription resources that match the API request criteria.",
+            "description": "Returns subscription resources that match the API request criteria.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_subscriptions_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_subscriptions_insert": {
+            "main": "./lib/actions/youtube_subscriptions_insert.js",
+            "title": "Adds a subscription for the authenticated user's channel.",
+            "description": "Adds a subscription for the authenticated user's channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_subscriptions_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_superChatEvents_list": {
+            "main": "./lib/actions/youtube_superChatEvents_list.js",
+            "title": "Lists Super Chat events for a channel.",
+            "description": "Lists Super Chat events for a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_superChatEvents_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_thumbnails_set": {
+            "main": "./lib/actions/youtube_thumbnails_set.js",
+            "title": "Uploads a custom video thumbnail to YouTube and sets it for a video.",
+            "description": "Uploads a custom video thumbnail to YouTube and sets it for a video.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_thumbnails_set.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_videoAbuseReportReasons_list": {
+            "main": "./lib/actions/youtube_videoAbuseReportReasons_list.js",
+            "title": "Returns a list of abuse reasons that can be used for reporting abusive videos.",
+            "description": "Returns a list of abuse reasons that can be used for reporting abusive videos.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_videoAbuseReportReasons_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_videoCategories_list": {
+            "main": "./lib/actions/youtube_videoCategories_list.js",
+            "title": "Returns a list of categories that can be associated with YouTube videos.",
+            "description": "Returns a list of categories that can be associated with YouTube videos.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_videoCategories_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_videos_delete": {
+            "main": "./lib/actions/youtube_videos_delete.js",
+            "title": "Deletes a YouTube video.",
+            "description": "Deletes a YouTube video.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_videos_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_videos_list": {
+            "main": "./lib/actions/youtube_videos_list.js",
+            "title": "Returns a list of videos that match the API request parameters.",
+            "description": "Returns a list of videos that match the API request parameters.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_videos_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_videos_insert": {
+            "main": "./lib/actions/youtube_videos_insert.js",
+            "title": "Uploads a video to YouTube and optionally sets the video's metadata.",
+            "description": "Uploads a video to YouTube and optionally sets the video's metadata.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/octet-stream": "application/octet-stream",
+                        "video/1d-interleaved-parityfec": "video/1d-interleaved-parityfec",
+                        "video/3gpp": "video/3gpp",
+                        "video/3gpp-tt": "video/3gpp-tt",
+                        "video/3gpp2": "video/3gpp2",
+                        "video/bmpeg": "video/bmpeg",
+                        "video/bt656": "video/bt656",
+                        "video/celb": "video/celb",
+                        "video/dv": "video/dv",
+                        "video/encaprtp": "video/encaprtp",
+                        "video/h261": "video/h261",
+                        "video/h263": "video/h263",
+                        "video/h263-1998": "video/h263-1998",
+                        "video/h263-2000": "video/h263-2000",
+                        "video/h264": "video/h264",
+                        "video/h264-rcdo": "video/h264-rcdo",
+                        "video/h264-svc": "video/h264-svc",
+                        "video/h265": "video/h265",
+                        "video/iso.segment": "video/iso.segment",
+                        "video/jpeg": "video/jpeg",
+                        "video/jpeg2000": "video/jpeg2000",
+                        "video/jpm": "video/jpm",
+                        "video/mj2": "video/mj2",
+                        "video/mp1s": "video/mp1s",
+                        "video/mp2p": "video/mp2p",
+                        "video/mp2t": "video/mp2t",
+                        "video/mp4": "video/mp4",
+                        "video/mp4v-es": "video/mp4v-es",
+                        "video/mpeg": "video/mpeg",
+                        "video/mpeg4-generic": "video/mpeg4-generic",
+                        "video/mpv": "video/mpv",
+                        "video/nv": "video/nv",
+                        "video/ogg": "video/ogg",
+                        "video/parityfec": "video/parityfec",
+                        "video/pointer": "video/pointer",
+                        "video/quicktime": "video/quicktime",
+                        "video/raptorfec": "video/raptorfec",
+                        "video/raw": "video/raw",
+                        "video/rtp-enc-aescm128": "video/rtp-enc-aescm128",
+                        "video/rtploopback": "video/rtploopback",
+                        "video/rtx": "video/rtx",
+                        "video/smpte292m": "video/smpte292m",
+                        "video/ulpfec": "video/ulpfec",
+                        "video/vc1": "video/vc1",
+                        "video/vnd.cctv": "video/vnd.cctv",
+                        "video/vnd.dece.hd": "video/vnd.dece.hd",
+                        "video/vnd.dece.mobile": "video/vnd.dece.mobile",
+                        "video/vnd.dece.mp4": "video/vnd.dece.mp4",
+                        "video/vnd.dece.pd": "video/vnd.dece.pd",
+                        "video/vnd.dece.sd": "video/vnd.dece.sd",
+                        "video/vnd.dece.video": "video/vnd.dece.video",
+                        "video/vnd.directv.mpeg": "video/vnd.directv.mpeg",
+                        "video/vnd.directv.mpeg-tts": "video/vnd.directv.mpeg-tts",
+                        "video/vnd.dlna.mpeg-tts": "video/vnd.dlna.mpeg-tts",
+                        "video/vnd.dvb.file": "video/vnd.dvb.file",
+                        "video/vnd.fvt": "video/vnd.fvt",
+                        "video/vnd.hns.video": "video/vnd.hns.video",
+                        "video/vnd.iptvforum.1dparityfec-1010": "video/vnd.iptvforum.1dparityfec-1010",
+                        "video/vnd.iptvforum.1dparityfec-2005": "video/vnd.iptvforum.1dparityfec-2005",
+                        "video/vnd.iptvforum.2dparityfec-1010": "video/vnd.iptvforum.2dparityfec-1010",
+                        "video/vnd.iptvforum.2dparityfec-2005": "video/vnd.iptvforum.2dparityfec-2005",
+                        "video/vnd.iptvforum.ttsavc": "video/vnd.iptvforum.ttsavc",
+                        "video/vnd.iptvforum.ttsmpeg2": "video/vnd.iptvforum.ttsmpeg2",
+                        "video/vnd.motorola.video": "video/vnd.motorola.video",
+                        "video/vnd.motorola.videop": "video/vnd.motorola.videop",
+                        "video/vnd.mpegurl": "video/vnd.mpegurl",
+                        "video/vnd.ms-playready.media.pyv": "video/vnd.ms-playready.media.pyv",
+                        "video/vnd.nokia.interleaved-multimedia": "video/vnd.nokia.interleaved-multimedia",
+                        "video/vnd.nokia.videovoip": "video/vnd.nokia.videovoip",
+                        "video/vnd.objectvideo": "video/vnd.objectvideo",
+                        "video/vnd.radgamettools.bink": "video/vnd.radgamettools.bink",
+                        "video/vnd.radgamettools.smacker": "video/vnd.radgamettools.smacker",
+                        "video/vnd.sealed.mpeg1": "video/vnd.sealed.mpeg1",
+                        "video/vnd.sealed.mpeg4": "video/vnd.sealed.mpeg4",
+                        "video/vnd.sealed.swf": "video/vnd.sealed.swf",
+                        "video/vnd.sealedmedia.softseal.mov": "video/vnd.sealedmedia.softseal.mov",
+                        "video/vnd.uvvu.mp4": "video/vnd.uvvu.mp4",
+                        "video/vnd.vivo": "video/vnd.vivo",
+                        "video/vp8": "video/vp8",
+                        "video/webm": "video/webm",
+                        "video/x-f4v": "video/x-f4v",
+                        "video/x-fli": "video/x-fli",
+                        "video/x-flv": "video/x-flv",
+                        "video/x-m4v": "video/x-m4v",
+                        "video/x-matroska": "video/x-matroska",
+                        "video/x-mng": "video/x-mng",
+                        "video/x-ms-asf": "video/x-ms-asf",
+                        "video/x-ms-vob": "video/x-ms-vob",
+                        "video/x-ms-wm": "video/x-ms-wm",
+                        "video/x-ms-wmv": "video/x-ms-wmv",
+                        "video/x-ms-wmx": "video/x-ms-wmx",
+                        "video/x-ms-wvx": "video/x-ms-wvx",
+                        "video/x-msvideo": "video/x-msvideo",
+                        "video/x-sgi-movie": "video/x-sgi-movie",
+                        "video/x-smv": "video/x-smv"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_videos_insert.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_videos_update": {
+            "main": "./lib/actions/youtube_videos_update.js",
+            "title": "Updates a video's metadata.",
+            "description": "Updates a video's metadata.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_videos_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_videos_getRating": {
+            "main": "./lib/actions/youtube_videos_getRating.js",
+            "title": "Retrieves the ratings that the authorized user gave to a list of specified videos.",
+            "description": "Retrieves the ratings that the authorized user gave to a list of specified videos.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_videos_getRating.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_videos_rate": {
+            "main": "./lib/actions/youtube_videos_rate.js",
+            "title": "Add a like or dislike rating to a video or remove a rating from a video.",
+            "description": "Add a like or dislike rating to a video or remove a rating from a video.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_videos_rate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_videos_reportAbuse": {
+            "main": "./lib/actions/youtube_videos_reportAbuse.js",
+            "title": "Report abuse for a video.",
+            "description": "Report abuse for a video.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_videos_reportAbuse.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_watermarks_set": {
+            "main": "./lib/actions/youtube_watermarks_set.js",
+            "title": "Uploads a watermark image to YouTube and sets it for a channel.",
+            "description": "Uploads a watermark image to YouTube and sets it for a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/octet-stream": "application/octet-stream",
+                        "image/jpeg": "image/jpeg",
+                        "image/png": "image/png"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_watermarks_set.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "youtube_watermarks_unset": {
+            "main": "./lib/actions/youtube_watermarks_unset.js",
+            "title": "Deletes a channel's watermark image.",
+            "description": "Deletes a channel's watermark image.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/youtube_watermarks_unset.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

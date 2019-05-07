@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "properties": {
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "fields": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A liveChatBan resource represents a ban for a YouTube live chat.",
+            "properties": {
+                "etag": {
+                    "description": "Etag of this resource.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The ID that YouTube assigns to uniquely identify the ban.",
+                    "type": "string"
+                },
+                "kind": {
+                    "default": "youtube#liveChatBan",
+                    "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#liveChatBan\".",
+                    "type": "string"
+                },
+                "snippet": {
+                    "description": "The snippet object contains basic details about the ban.",
+                    "properties": {
+                        "banDurationSeconds": {
+                            "description": "The duration of a ban, only filled if the ban has type TEMPORARY.",
+                            "format": "uint64",
+                            "type": "string"
+                        },
+                        "bannedUserDetails": {
+                            "properties": {
+                                "channelId": {
+                                    "description": "The YouTube channel ID.",
+                                    "type": "string"
+                                },
+                                "channelUrl": {
+                                    "description": "The channel's URL.",
+                                    "type": "string"
+                                },
+                                "displayName": {
+                                    "description": "The channel's display name.",
+                                    "type": "string"
+                                },
+                                "profileImageUrl": {
+                                    "description": "The channels's avatar URL.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "liveChatId": {
+                            "description": "The chat this ban is pertinent to.",
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "The type of ban.",
+                            "enum": [
+                                "permanent",
+                                "temporary"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

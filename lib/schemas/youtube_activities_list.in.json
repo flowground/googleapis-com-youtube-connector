@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "properties": {
+        "channelId": {
+            "type": "string"
+        },
+        "home": {
+            "type": "boolean"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 50,
+            "default": 5
+        },
+        "mine": {
+            "type": "boolean"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "publishedAfter": {
+            "type": "string"
+        },
+        "publishedBefore": {
+            "type": "string"
+        },
+        "regionCode": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,127 @@
+{
+    "type": "object",
+    "properties": {
+        "onBehalfOf": {
+            "type": "string"
+        },
+        "onBehalfOfContentOwner": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "sync": {
+            "type": "boolean"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A caption resource represents a YouTube caption track. A caption track is associated with exactly one YouTube video.",
+            "properties": {
+                "etag": {
+                    "description": "Etag of this resource.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The ID that YouTube uses to uniquely identify the caption track.",
+                    "type": "string"
+                },
+                "kind": {
+                    "default": "youtube#caption",
+                    "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#caption\".",
+                    "type": "string"
+                },
+                "snippet": {
+                    "description": "The snippet object contains basic details about the caption.",
+                    "properties": {
+                        "audioTrackType": {
+                            "description": "The type of audio track associated with the caption track.",
+                            "enum": [
+                                "commentary",
+                                "descriptive",
+                                "primary",
+                                "unknown"
+                            ],
+                            "type": "string"
+                        },
+                        "failureReason": {
+                            "description": "The reason that YouTube failed to process the caption track. This property is only present if the state property's value is failed.",
+                            "enum": [
+                                "processingFailed",
+                                "unknownFormat",
+                                "unsupportedFormat"
+                            ],
+                            "type": "string"
+                        },
+                        "isAutoSynced": {
+                            "description": "Indicates whether YouTube synchronized the caption track to the audio track in the video. The value will be true if a sync was explicitly requested when the caption track was uploaded. For example, when calling the captions.insert or captions.update methods, you can set the sync parameter to true to instruct YouTube to sync the uploaded track to the video. If the value is false, YouTube uses the time codes in the uploaded caption track to determine when to display captions.",
+                            "type": "boolean"
+                        },
+                        "isCC": {
+                            "description": "Indicates whether the track contains closed captions for the deaf and hard of hearing. The default value is false.",
+                            "type": "boolean"
+                        },
+                        "isDraft": {
+                            "description": "Indicates whether the caption track is a draft. If the value is true, then the track is not publicly visible. The default value is false.",
+                            "type": "boolean"
+                        },
+                        "isEasyReader": {
+                            "description": "Indicates whether caption track is formatted for \"easy reader,\" meaning it is at a third-grade level for language learners. The default value is false.",
+                            "type": "boolean"
+                        },
+                        "isLarge": {
+                            "description": "Indicates whether the caption track uses large text for the vision-impaired. The default value is false.",
+                            "type": "boolean"
+                        },
+                        "language": {
+                            "description": "The language of the caption track. The property value is a BCP-47 language tag.",
+                            "type": "string"
+                        },
+                        "lastUpdated": {
+                            "description": "The date and time when the caption track was last updated. The value is specified in ISO 8601 (YYYY-MM-DDThh:mm:ss.sZ) format.",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "The name of the caption track. The name is intended to be visible to the user as an option during playback.",
+                            "type": "string"
+                        },
+                        "status": {
+                            "description": "The caption track's status.",
+                            "enum": [
+                                "failed",
+                                "serving",
+                                "syncing"
+                            ],
+                            "type": "string"
+                        },
+                        "trackKind": {
+                            "description": "The caption track's type.",
+                            "enum": [
+                                "ASR",
+                                "forced",
+                                "standard"
+                            ],
+                            "type": "string"
+                        },
+                        "videoId": {
+                            "description": "The ID that YouTube uses to uniquely identify the video associated with the caption track.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

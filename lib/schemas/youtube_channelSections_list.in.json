@@ -1,0 +1,27 @@
+{
+    "type": "object",
+    "properties": {
+        "channelId": {
+            "type": "string"
+        },
+        "hl": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string"
+        },
+        "mine": {
+            "type": "boolean"
+        },
+        "onBehalfOfContentOwner": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

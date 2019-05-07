@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "hl": {
+            "type": "string"
+        },
+        "liveChatId": {
+            "required": true,
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 200,
+            "maximum": 2000,
+            "default": 500
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "profileImageSize": {
+            "type": "integer",
+            "minimum": 16,
+            "maximum": 720
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

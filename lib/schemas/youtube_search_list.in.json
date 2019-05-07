@@ -1,0 +1,165 @@
+{
+    "type": "object",
+    "properties": {
+        "channelId": {
+            "type": "string"
+        },
+        "channelType": {
+            "type": "string",
+            "enum": [
+                "any",
+                "show"
+            ]
+        },
+        "eventType": {
+            "type": "string",
+            "enum": [
+                "completed",
+                "live",
+                "upcoming"
+            ]
+        },
+        "forContentOwner": {
+            "type": "boolean"
+        },
+        "forDeveloper": {
+            "type": "boolean"
+        },
+        "forMine": {
+            "type": "boolean"
+        },
+        "location": {
+            "type": "string"
+        },
+        "locationRadius": {
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 50,
+            "default": 5
+        },
+        "onBehalfOfContentOwner": {
+            "type": "string"
+        },
+        "order": {
+            "type": "string",
+            "enum": [
+                "date",
+                "rating",
+                "relevance",
+                "title",
+                "videoCount",
+                "viewCount"
+            ],
+            "default": "relevance"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "publishedAfter": {
+            "type": "string"
+        },
+        "publishedBefore": {
+            "type": "string"
+        },
+        "q": {
+            "type": "string"
+        },
+        "regionCode": {
+            "type": "string"
+        },
+        "relatedToVideoId": {
+            "type": "string"
+        },
+        "relevanceLanguage": {
+            "type": "string"
+        },
+        "safeSearch": {
+            "type": "string",
+            "enum": [
+                "moderate",
+                "none",
+                "strict"
+            ]
+        },
+        "topicId": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string",
+            "default": "video,channel,playlist"
+        },
+        "videoCaption": {
+            "type": "string",
+            "enum": [
+                "any",
+                "closedCaption",
+                "none"
+            ]
+        },
+        "videoCategoryId": {
+            "type": "string"
+        },
+        "videoDefinition": {
+            "type": "string",
+            "enum": [
+                "any",
+                "high",
+                "standard"
+            ]
+        },
+        "videoDimension": {
+            "type": "string",
+            "enum": [
+                "2d",
+                "3d",
+                "any"
+            ]
+        },
+        "videoDuration": {
+            "type": "string",
+            "enum": [
+                "any",
+                "long",
+                "medium",
+                "short"
+            ]
+        },
+        "videoEmbeddable": {
+            "type": "string",
+            "enum": [
+                "any",
+                "true"
+            ]
+        },
+        "videoLicense": {
+            "type": "string",
+            "enum": [
+                "any",
+                "creativeCommon",
+                "youtube"
+            ]
+        },
+        "videoSyndicated": {
+            "type": "string",
+            "enum": [
+                "any",
+                "true"
+            ]
+        },
+        "videoType": {
+            "type": "string",
+            "enum": [
+                "any",
+                "episode",
+                "movie"
+            ]
+        }
+    }
+}

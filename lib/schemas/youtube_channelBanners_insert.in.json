@@ -1,0 +1,46 @@
+{
+    "type": "object",
+    "properties": {
+        "channelId": {
+            "type": "string"
+        },
+        "onBehalfOfContentOwner": {
+            "type": "string"
+        },
+        "key": {
+            "type": "string"
+        },
+        "oauth_token": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "A channel banner returned as the response to a channel_banner.insert call.",
+            "properties": {
+                "etag": {
+                    "description": "Etag of this resource.",
+                    "type": "string"
+                },
+                "kind": {
+                    "default": "youtube#channelBannerResource",
+                    "description": "Identifies what kind of resource this is. Value: the fixed string \"youtube#channelBannerResource\".",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "The URL of this banner image.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

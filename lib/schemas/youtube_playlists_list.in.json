@@ -1,0 +1,36 @@
+{
+    "type": "object",
+    "properties": {
+        "channelId": {
+            "type": "string"
+        },
+        "hl": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 50,
+            "default": 5
+        },
+        "mine": {
+            "type": "boolean"
+        },
+        "onBehalfOfContentOwner": {
+            "type": "string"
+        },
+        "onBehalfOfContentOwnerChannel": {
+            "type": "string"
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

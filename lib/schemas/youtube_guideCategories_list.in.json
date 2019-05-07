@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "hl": {
+            "type": "string",
+            "default": "en-US"
+        },
+        "id": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "regionCode": {
+            "type": "string"
+        },
+        "prettyPrint": {
+            "type": "boolean",
+            "default": true
+        },
+        "quotaUser": {
+            "type": "string"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

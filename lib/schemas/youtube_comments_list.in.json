@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "parentId": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "textFormat": {
+            "type": "string",
+            "enum": [
+                "html",
+                "plainText"
+            ],
+            "default": "html"
+        },
+        "userIp": {
+            "type": "string"
+        }
+    }
+}

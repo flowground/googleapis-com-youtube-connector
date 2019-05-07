@@ -1,0 +1,57 @@
+{
+    "type": "object",
+    "properties": {
+        "allThreadsRelatedToChannelId": {
+            "type": "string"
+        },
+        "channelId": {
+            "type": "string"
+        },
+        "id": {
+            "type": "string"
+        },
+        "maxResults": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+        },
+        "moderationStatus": {
+            "type": "string",
+            "enum": [
+                "heldForReview",
+                "likelySpam",
+                "published"
+            ],
+            "default": "published"
+        },
+        "order": {
+            "type": "string",
+            "enum": [
+                "relevance",
+                "time"
+            ]
+        },
+        "pageToken": {
+            "type": "string"
+        },
+        "part": {
+            "required": true,
+            "type": "string"
+        },
+        "searchTerms": {
+            "type": "string"
+        },
+        "textFormat": {
+            "type": "string",
+            "enum": [
+                "html",
+                "plainText"
+            ],
+            "default": "html"
+        },
+        "videoId": {
+            "type": "string"
+        }
+    }
+}
